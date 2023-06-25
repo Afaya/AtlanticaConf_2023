@@ -30,7 +30,9 @@ Este método hace lo siguiente
     ```
 
 Ahora es cuando pintamos el grid que va a contener el gráfico:
+```
 function generateGrid(currentGraphDiv, calculatedData)
+```
 Este método hace lo siguiente:
     - Pintamos las filas del grid teniendo en cuenta que nuestro 100% serán las maxCeils que tenemos como constante:
     ```
