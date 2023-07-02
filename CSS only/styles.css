@@ -43,11 +43,20 @@
     flex-direction:column;
 }
 
-.own-bar-graph{
+.bubble-main-div{
+  align-items:center;
+}
+
+.own-graph{
     display: grid;
     border-left: #000 solid 4px;
-    border-bottom: #000 solid 4px;
-    
+    border-bottom: #000 solid 4px;    
+}
+
+.bubble-graph{
+  padding:2rem;
+  border: #e6e6e6 solid 4px;
+  border-radius: 4rem;
 }
 
 .bar-graph-bar{
@@ -73,4 +82,31 @@
 h2{
     color: #006600;  
     text-align:center;
+}
+
+.bubble{
+  border-radius:100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pink{
+  background-color: #ff66cc;
+} 
+
+.orange{
+  background-color: #ff9933;
+} 
+
+.green{
+  background-color:#8cff66;
+} 
+
+.yellow{
+  background-color: #ffff00;
+} 
+
+.blue{
+  background-color: #3399ff;
 }

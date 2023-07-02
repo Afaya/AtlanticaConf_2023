@@ -72,6 +72,66 @@ Este método hace lo siguiente:
     currentSpan.innerHTML = text;
     ```
 
+## Gráfico de burbujas
+
+Lo primero de todo es calcular que tamaño tendrán las burbujas
+```
+calculateDataInBubbles()
+```
+Para ello:
+    - Primero tomamos el valor máximo:
+    ```
+     const maxValue = Math.max(...dataToDisplayInGraphs.map(o => o.value));
+    ```
+
+    - Y después dependiendo de su tamaño y del máximo calculamos su porcentaje con respecto al máximo. Con este porcentaje calculamos si tendría un valor de 3 (> 75%), 2 (>50%) o 1.
+    ```
+    calculateBubbleSize(maxValue, currentValue)
+    ```
+
+A continuación se genera el grid:
+```
+generateBubbleGrid(graphDiv, bubbleData);
+```
+
+    - Por defecto cada dato estará en una cuadrícula de 3 x 3, por lo que se calcula el numero de columnas y el de filas así:
+    ```
+    var numberColumns = 3 * calculatedData.length;
+    ```
+
+    - Luego dependiendo del número de filas o columnas se calcula el número de px que van a tener para que tengan forma cuadrada
+
+    - Se pone el mismo valor para las grid-template-columns que para las grid-template-rows:
+    ```
+    'repeat(' + numberColumns + ',' + columnWidth + 'px)';
+    ```
+
+Y por último rellenamos el grid:
+```
+fillBubbleGrid(bubbleData, graphDiv, numberRows);
+```
+    - Creamos un div y le ponemos o bien una clase de color aleatoria o si son menos de 6 datos entonces cada uno le ponemos un color:
+    ```
+    const currentRandomColor = getRandomBubbleNumber(4, 0);
+    currentDiv.classList.add(availableBubbleColors[currentRandomColor]);
+    ```
+
+    - Luego cogemos al azar una fila para situarlo y hacemos que ocupe las filas que correspondan a su valor (1, 2 ó 3):
+    ```
+    const currentRandomRowStart = getRandomBubbleNumber(numberRows-3, 1);
+    currentDiv.style.gridRowStart = currentRandomRowStart;
+    currentDiv.style.gridRowEnd = currentRandomRowStart + data.value;
+    ```
+
+    - Luego lo situamos en la columna que le toca (cada uno tiene de máximo 3 y se empieza en la 1, el siguiente en la 4 y así) y le ponemos de ancho el valor que le haya correspondido (1, 2 ó 3):
+    ```
+    currentDiv.style.gridColumnStart = currentDataPosition;
+    currentDiv.style.gridColumnEnd = currentDataPosition + data.value;
+    ```
+
+    - Dentro le ponemos el nombre de la persona.
+
+
 Y listo!
 
 

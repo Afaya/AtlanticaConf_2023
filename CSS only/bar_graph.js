@@ -1,26 +1,3 @@
-const dataToDisplayInGraphs=[
-    {
-        name:'Victoria',
-        value: 33
-    },
-    {
-        name:'Cristina',
-        value: 18
-    },
-    {
-        name:'Aida',
-        value: 22
-    },
-    {
-        name:'Micaela',
-        value: 52
-    },
-    {
-        name:'Lucia',
-        value: 20
-    }
-];
-
 const maxCeils = 50;
 
 function calculateDataInPercent(){
@@ -36,7 +13,7 @@ function calculateDataInPercent(){
    });
 }
 
-function generateGrid(currentGraphDiv, calculatedData){
+function generateBarGrid(currentGraphDiv, calculatedData){
     currentGraphDiv.style.gridTemplateRows = 'repeat(' + maxCeils + ', 1vh)';
     var calculatedColumnWidth = calculatedData.length < 20 ? 100/ calculatedData.length :5;
     currentGraphDiv.style.gridTemplateColumns = 
@@ -44,7 +21,7 @@ function generateGrid(currentGraphDiv, calculatedData){
     return calculatedColumnWidth;      
 }
 
-function fillGrid(currentGraphDiv, calculatedData, columnWidth){
+function fillBarGrid(currentGraphDiv, calculatedData, columnWidth){
     calculatedData.forEach(data=>{
         var currentDiv = document.createElement("div");
         currentDiv.classList.add('bar-graph-bar');
@@ -66,30 +43,4 @@ function generateXaxis(columnWidth, text){
     currentXaxis.appendChild(currentSpan);
 }
 
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-
-document.addEventListener("DOMContentLoaded", function(event) {
-    var currentGraphDiv = document.getElementById('bar-graph-calculated');
-    var calculatedData = calculateDataInPercent();
-
-    if(calculatedData && calculatedData.length > 0){
-        var columnWidth = generateGrid(currentGraphDiv, calculatedData);
-        fillGrid(currentGraphDiv, calculatedData, columnWidth);
-    }
-
-    document.getElementById('bar').style.display = "block";
-    document.getElementsByClassName('tablinks')[0].classList.add('active');
-});
 
