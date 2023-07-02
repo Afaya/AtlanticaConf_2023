@@ -16,7 +16,7 @@ A continuación se calculan los datos en porcentaje con el método:
 calculateDataInPercent()
 ```
 Este método hace lo siguiente
-    - Calcula el valor mas alto del array: 
+- Calcula el valor mas alto del array: 
     ``` 
     Math.max(...dataToDisplayInGraphs.map(o => o.value));
     ```
@@ -24,19 +24,21 @@ Este método hace lo siguiente
     ```
     Math.ceil(maximumValueInData / 10) * 10;
     ```
-    - Calcula el valor de cada objeto en porcentaje, tomando el valor mas alto del gráfico como el 100%:
+- Calcula el valor de cada objeto en porcentaje, tomando el valor mas alto del gráfico como el 100%:
     ```
     Math.ceil(d.value * maxCeils / maximumValueInGraph);
     ```
 
 Ahora es cuando pintamos el grid que va a contener el gráfico:
+```
 function generateGrid(currentGraphDiv, calculatedData)
+```
 Este método hace lo siguiente:
-    - Pintamos las filas del grid teniendo en cuenta que nuestro 100% serán las maxCeils que tenemos como constante:
+- Pintamos las filas del grid teniendo en cuenta que nuestro 100% serán las maxCeils que tenemos como constante:
     ```
     currentGraphDiv.style.gridTemplateRows = 'repeat(' + maxCeils + ', 1vh)';
     ```
-    - Pintamos las columnas (o bien 100% / num columnas o si son muchas un 5%)
+- Pintamos las columnas (o bien 100% / num columnas o si son muchas un 5%)
     ```
     currentGraphDiv.style.gridTemplateColumns = 
         'repeat(' + calculatedData.length + ',' + calculatedColumnWidth +'%)';
@@ -47,20 +49,20 @@ Ahora es cuando rellenamos el grid con las columnas:
 function fillGrid(currentGraphDiv, calculatedData, columnWidth)
 ```
 Este método hace lo siguiente:
-    - Crea un div:
+- Crea un div:
     ```
     var currentDiv = document.createElement("div");
     ```
-    - Le añadimos su clase
-    - Lo posicionamos en la fila mas alta, ya que el grid empieza de la fila 0 arriba del todo hacia abajo.
+- Le añadimos su clase
+- Lo posicionamos en la fila mas alta, ya que el grid empieza de la fila 0 arriba del todo hacia abajo.
     ```
     currentDiv.style.gridRowStart = maxCeils + 1;
     ```
-    - Calculamos hasta donde debe llegar según su valor en porcentaje
+- Calculamos hasta donde debe llegar según su valor en porcentaje
     ```
     currentDiv.style.gridRowEnd = maxCeils + 1 - data.value;
     ```
-    - Le ponemos en texto su valor:
+- Le ponemos en texto su valor:
     ```
     currentDiv.innerHTML = data.originalValue + 'pts';
     ```
