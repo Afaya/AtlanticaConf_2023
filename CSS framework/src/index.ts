@@ -1,21 +1,40 @@
 'use strict';
 
-import { REEData } from "./scripts/ree/ree-data";
+import { DrawData } from "./scripts/ree/draw-data";
 
 declare global {
     interface Window {
-        processReeData: any;
+        drawReeData: any;
+        showHideTab: any;
     }
 }
 
+// #region general functions
+function showHideTab(tabId: string): void {
+    const tableWithGraphElement = document.getElementById('tabBarGraph');
+
+    if (tableWithGraphElement) {
+        tableWithGraphElement.style.display = "none";
+    }
+
+    const currentTab = document.getElementById(tabId);
+
+    if (currentTab) {
+        currentTab.style.display = "flex";
+    }
+
+    drawReeData();
+}
+// #endregion general functions
 
 // #region reedata
-function processReeData(): void {
-    const reeData = new REEData();
-    reeData.processReeData;
+function drawReeData(): void {
+    const drawData = new DrawData();
+    drawData.drawData();
 }
 // #endregion reedata
 
 
 // assign global functions webpack
-window.processReeData = processReeData;
+window.drawReeData = drawReeData;
+window.showHideTab = showHideTab;

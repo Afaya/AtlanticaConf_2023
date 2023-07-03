@@ -142,6 +142,13 @@ Esto genera el archivo `packages.json`; modificar `index.js` por `index.ts`.
 ### Paso 3 (Desarrollar Proyecto): 
 
 
+# Using chartscss framework
+
+* You can read mor information in the [web](https://chartscss.org/)
+* Instalation:
+    - Add link in html head using CDN: `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">` or `<link rel="stylesheet" href="https://unpkg.com/charts.css/dist/charts.min.css">`
+    - Using npm: `npm install charts.css` or yarn: `yarn add charts.css` and import with `import 'charts.css';`
+
 # Info API ree
 
 ## base url: `https://apidatos.ree.es/{lang}/datos/{category}/{widget}?[query]`
@@ -376,3 +383,4 @@ https://apidatos.ree.es/es/datos/demanda/demanda-tiempo-real?start_date=2022-09-
 * [Web Typescript](https://www.typescriptlang.org/)
 * [WebPack](https://webpack.js.org/)
 * [API ree](https://www.ree.es/es/apidatos)
+* [Charts css](https://chartscss.org/)

@@ -1,0 +1,88 @@
+html {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+body {
+    color: #FFFFFF;
+    background-color: #061B2B;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    height: 5.5%;
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 0 15rem 0 15rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 85%;
+    width: 100%;
+    padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 4%;
+    width: 100%;
+    padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+}
+
+/* header styles */
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.menu button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    width: fit-content;
+    color: #404B5C;
+    font-size: 0.875rem;
+    border: none;
+    background-color: transparent;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    font-weight: bold;
+    padding: 0.3rem 1rem 0 1rem;
+    border-bottom: 0.3rem solid #00C1DE;
+}
+/* header styles */
+
+/* main styles */
+.tab {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+}
+/* main styles */
+
+/* footer styles */
+/* footer styles */
