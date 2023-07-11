@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" charset="UTF-8" href="./assets/icons/favicon.ico">
   <link rel="stylesheet" type="text/css" charset="UTF-8" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/charts.min.css">
 </head>
 
 <body>
@@ -24,7 +25,26 @@
       </nav>
 
       <div id="tabBarGraph" class="tab">
-        grafica visible
+        <table class="charts-css bar show-primary-axis show-data-axes">
+          <caption> Caption </caption>
+
+          <thead>
+            <tr>
+              <th scope="col"> th </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row"> row </th>
+              <td> 5 </td>
+            </tr>
+            <tr>
+              <th scope="row"> other row </th>
+              <td> 10 </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div id="tabLineGraph" class="tab">
         line visible
