@@ -1,32 +1,42 @@
 <!doctype html>
 <html lang="es" type="text/html" charset="UTF-8">
 
-  <head>
-    <title>AtlanticaConf 2023</title>
-    <meta name="keywords" content="data, visualization, graphs, css, AtlanticaConf" />
-    <meta name="description" content="Sample graphs using css to AtlanticaConf 2023" />
-    <meta name="author" content="(Afaya) Juan Manuel Rodriguez Perez, Azahara Fernandez Guizan" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" charset="UTF-8" href="./assets/icons/favicon.ico">
-    <link rel="stylesheet" type="text/css" charset="UTF-8" href="./styles/main.css">
-  </head>
+<head>
+  <title>AtlanticaConf 2023</title>
+  <meta name="keywords" content="data, visualization, graphs, css, AtlanticaConf" />
+  <meta name="description" content="Sample graphs using css to AtlanticaConf 2023" />
+  <meta name="author" content="(Afaya) Juan Manuel Rodriguez Perez, Azahara Fernandez Guizan" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" charset="UTF-8" href="./assets/icons/favicon.ico">
+  <link rel="stylesheet" type="text/css" charset="UTF-8" href="./styles/main.css">
+</head>
 
-  <body>
-    <header>
+<body>
+  <header>
+    <h3>Gráficas con chartscss</h3>
+  </header>
+
+  <main>
+    <section>
       <nav class="menu">
-        <button id="buttonBarGraph" type="button" onclick="showHideTab('tabBarGraph')">Gráfica de barras</button>
+        <button id="button_tabBarGraph" type="button" onclick="showHideTab('tabBarGraph')">De barras</button>
+        <button id="button_tabLineGraph" type="button" onclick="showHideTab('tabLineGraph')">De lineas</button>
       </nav>
-    </header>
 
-    <main>
       <div id="tabBarGraph" class="tab">
         grafica visible
       </div>
-    </main>
+      <div id="tabLineGraph" class="tab">
+        line visible
+      </div>
+    </section>
 
-    <footer>
-    </footer>
+  </main>
 
-    <script type="text/javascript" charset="UTF-8" src="main-bundle.js"></script>
-  </body>
+  <footer>
+  </footer>
+
+  <script type="text/javascript" charset="UTF-8" src="main-bundle.js"></script>
+</body>
+
 </html>
