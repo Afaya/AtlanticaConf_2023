@@ -25,29 +25,99 @@
       </nav>
 
       <div id="tabBarGraph" class="tab">
-        <table class="charts-css bar show-primary-axis show-data-axes">
-          <caption> Caption </caption>
+
+        <table class="charts-css bar 
+        show-heading 
+        show-labels 
+        show-primary-axis 
+        show-10-secondary-axes 
+        show-data-axes 
+        data-spacing-20">
+
+          <caption> Bar graph </caption>
 
           <thead>
             <tr>
-              <th scope="col"> th </th>
+              <th scope="col">th</th>
             </tr>
           </thead>
 
           <tbody>
             <tr>
-              <th scope="row"> row </th>
-              <td> 5 </td>
+              <th scope="row">row 1</th>
+              <td style="--size: 0.05;"> 5 <span class="tooltip"> Tooltip info </span> </td>
             </tr>
+
             <tr>
-              <th scope="row"> other row </th>
-              <td> 10 </td>
+              <th scope="row">row 2</th>
+              <td style="--size: 0.07;"> 7 </td>
+            </tr>
+
+            <tr>
+              <th scope="row">row 3</th>
+              <td style="--size: 0.10;"> 10 </td>
+            </tr>
+
+            <tr>
+              <th scope="row">row 4</th>
+              <td style="--size: 0.30;"> 30 </td>
             </tr>
           </tbody>
         </table>
+
+        <ul class="charts-css legend legend-inline legend-circle">
+          <li> Label 1 </li>
+          <li> Label 2 </li>
+          <li> Label 3 </li>
+        </ul>
       </div>
+
       <div id="tabLineGraph" class="tab">
-        line visible
+        <table class="charts-css line 
+        show-heading 
+        show-labels 
+        show-primary-axis 
+        show-10-secondary-axes 
+        show-data-axes">
+
+          <caption> line graph </caption>
+
+          <thead>
+            <tr>
+              <th scope="col">th</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row">row 1</th>
+              <td style="--start: 0.0; --size: 0.05;">
+                <span class="data">5</span>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row">row 2</th>
+              <td style="--start: 0.05;--size: 0.10;">
+                <span class="data">10</span>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row">row 3</th>
+              <td style="--start: 0.10;--size: 0.07;">
+                <span class="data">7</span>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row">row 4</th>
+              <td style="--start: 0.07;--size: 0.30;">
+                <span class="data">30</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 

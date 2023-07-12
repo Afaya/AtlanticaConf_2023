@@ -207,6 +207,32 @@ Proyecto web creado con html, css, typescript y webpack
             Radar | Under Development | charts-css radar
             Polar | Under Development | charts-css polar
 
+
+* Styling graphs:
+    - show-heading --> visalizar la cabecera (usando el caption)
+    - multiple --> Visualiza la grafica por grupos, cada grupo seria un tr y seria teniendo multiples td internos
+    - show-labels --> Visualiza la información de cada dato, usando los th de cada tr
+    - show-primary-axis --> dibuja la linea de los ejes x e y
+    - show-*-secondary-axes --> dibuja lineas secundarias donde el * se puede usar desde el 1 al 10
+    - show-data-axes --> dibuja lineas de los ejes por cada dato
+    - data-spacing-* --> indica el espacio entre los datos, va estrechando las lineas de los datos, donde el * va del 1 al 20
+    - datasets-spacing-* --> Igual que anterior pero separa cuando es multiple la grafica
+    - reverse-data --> invierte la grafica, de abajo arriba
+    - reverse-datasets --> igual que anterior pero cuando es multiple (* las reverse se pueden usar en conjunto)
+
+* Use tooltip --> En cada td: <span class="tooltip"> Data: 5 </span
+
+* Legend:
+    - Crear antes de la tabla, el siguiente listado: (legend-circle pone un circulo relacionando su color, se puede usar legend-square para que sea un cuadrado, legend-ellipse sea una elipse, legend-rectangle un rectangulo, legend-rhombus un rombo)
+
+    ```javascript
+        <ul class="charts-css legend legend-circle">
+            <li> Label 1 </li>
+            <li> Label 2 </li>
+            <li> Label 3 </li>
+        </ul>
+    ```
+
 # Info API ree
 
 ## base url: `https://apidatos.ree.es/{lang}/datos/{category}/{widget}?[query]`
