@@ -1,4 +1,4 @@
-var isLineGraphCalculated = false;
+var isAreaGraphCalculated = false;
 var isBubbleGraphCalculated = false;
 
 function openTab(evt, tabName) {
@@ -14,9 +14,12 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 
-    if(tabName == 'bubble' && !isBubbleGraphCalculated){
-        loadBubbleGraph();
-        isBubbleGraphCalculated = true;
+    if(tabName === 'bubble' && !isBubbleGraphCalculated){
+      loadBubbleGraph();
+      isBubbleGraphCalculated = true;
+    } else if(tabName === 'area' && !isAreaGraphCalculated){
+      loadAreaGraph();
+      isAreaGraphCalculated = true;
     }
 }
 
