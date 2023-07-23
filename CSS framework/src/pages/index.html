@@ -1,28 +1,203 @@
 <!doctype html>
 <html lang="es" type="text/html" charset="UTF-8">
 
-  <head>
-    <title>AtlanticaConf 2023</title>
-    <meta name="keywords" content="data, visualization, graphs, css" />
-    <meta name="description" content="Sample graphs using css" />
-    <meta name="author" content="(Afaya) Juan Manuel Rodriguez Perez, Azahara Fernandez Guizan" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" charset="UTF-8" href="./assets/icons/favicon.ico">
-    <link rel="stylesheet" type="text/css" charset="UTF-8" href="./styles/main.css">
-  </head>
+<head>
+  <title>AtlanticaConf 2023</title>
+  <meta name="keywords" content="data, visualization, graphs, css, AtlanticaConf" />
+  <meta name="description" content="Sample graphs using css to AtlanticaConf 2023" />
+  <meta name="author" content="(Afaya) Juan Manuel Rodriguez Perez, Azahara Fernandez Guizan" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" charset="UTF-8" href="./assets/icons/favicon.ico">
+  <link rel="stylesheet" type="text/css" charset="UTF-8" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/charts.min.css">
+</head>
 
-  <body>
-    <header>
+<body>
+  <header>
+    <h3>Gráficas con chartscss</h3>
+  </header>
+
+  <main>
+    <section>
       <nav class="menu">
+        <button id="button_tabBarGraph" type="button" onclick="showHideTab('tabBarGraph')">Barras</button>
+        <button id="button_tabLineGraph" type="button" onclick="showHideTab('tabLineGraph')">Lineas</button>
+        <button id="button_tabColumnGraph" type="button" onclick="showHideTab('tabColumnGraph')">Columnas</button>
+        <button id="button_tabAreaGraph" type="button" onclick="showHideTab('tabAreaGraph')">Area</button>
+        <button id="button_tabRadialGraph" type="button" onclick="showHideTab('tabRadialGraph')">Radial</button>
+        <button id="button_tabPieGraph" type="button" onclick="showHideTab('tabPieGraph')">Pie</button>
+        <button id="button_tabPolarGraph" type="button" onclick="showHideTab('tabPolarGraph')">Polar</button>
+        <button id="button_tabRadarGraph" type="button" onclick="showHideTab('tabRadarGraph')">Radar</button>
+        <button id="button_tabMixedGraph" type="button" onclick="showHideTab('tabMixedGraph')">Mixed</button>
       </nav>
-    </header>
 
-    <main>
-    </main>
+      <div id="tabBarGraph" class="tab">
+        <table class="charts-css bar 
+        show-heading 
+        show-labels 
+        show-primary-axis 
+        show-10-secondary-axes 
+        show-data-axes 
+        data-spacing-20">
 
-    <footer>
-    </footer>
+          <caption> Bar graph </caption>
 
-    <script type="text/javascript" charset="UTF-8" src="main-bundle.js"></script>
-  </body>
+          <thead>
+            <tr>
+              <th scope="col">th</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row">row 1</th>
+              <td style="--size: 0.001;"> 1 <span class="tooltip"> Tooltip info </span> </td>
+            </tr>
+
+            <tr>
+              <th scope="row">row 2</th>
+              <td style="--size: 0.007;"> 7 </td>
+            </tr>
+
+            <tr>
+              <th scope="row">row 3</th>
+              <td style="--size: 0.010;"> 10 </td>
+            </tr>
+
+            <tr>
+              <th scope="row">row 4</th>
+              <td style="--size: 0.030;"> 30 </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <ul class="charts-css legend legend-inline legend-circle">
+          <li> Label 1 </li>
+          <li> Label 2 </li>
+          <li> Label 3 </li>
+        </ul>
+      </div>
+
+      <div id="tabLineGraph" class="tab">
+        <table class="charts-css line 
+        show-heading 
+        show-labels 
+        show-primary-axis 
+        show-10-secondary-axes 
+        show-data-axes">
+
+          <caption> line graph </caption>
+
+          <thead>
+            <tr>
+              <th scope="col">th</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row">row 1</th>
+              <td style="--start: 0.0; --size: 0.05;">
+                <span class="data">5</span>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row">row 2</th>
+              <td style="--start: 0.05;--size: 0.10;">
+                <span class="data">10</span>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row">row 3</th>
+              <td style="--start: 0.10;--size: 0.07;">
+                <span class="data">7</span>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row">row 4</th>
+              <td style="--start: 0.07;--size: 0.30;">
+                <span class="data">30</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="tabColumnGraph" class="tab">
+        <table class="charts-css column 
+        show-heading 
+        show-labels 
+        show-primary-axis 
+        show-10-secondary-axes 
+        show-data-axes 
+        data-spacing-20">
+
+          <caption> Column graph </caption>
+
+          <thead>
+            <tr>
+              <th scope="col">th</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row">row 1</th>
+              <td style="--size: 0.001;"> 1 <span class="tooltip"> Tooltip info </span> </td>
+            </tr>
+
+            <tr>
+              <th scope="row">row 2</th>
+              <td style="--size: 0.007;"> 7 </td>
+            </tr>
+
+            <tr>
+              <th scope="row">row 3</th>
+              <td style="--size: 0.010;"> 10 </td>
+            </tr>
+
+            <tr>
+              <th scope="row">row 4</th>
+              <td style="--size: 0.030;"> 30 </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <ul class="charts-css legend legend-inline legend-circle">
+          <li> Label 1 </li>
+          <li> Label 2 </li>
+          <li> Label 3 </li>
+        </ul>
+      </div>
+
+      <div id="tabAreaGraph" class="tab">
+      </div>
+
+      <div id="tabRadialGraph" class="tab">
+      </div>
+
+      <div id="tabPieGraph" class="tab">
+      </div>
+
+      <div id="tabPolarGraph" class="tab">
+      </div>
+      
+      <div id="tabRadarGraph" class="tab">
+      </div>
+      
+      <div id="tabMixedGraph" class="tab">
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+  </footer>
+
+  <script type="text/javascript" charset="UTF-8" src="main-bundle.js"></script>
+</body>
+
 </html>
