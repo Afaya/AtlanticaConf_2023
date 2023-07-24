@@ -1,11 +1,10 @@
 
 import { IncludedReeResponse } from "../../models/interfaces/includedReeResponse";
 import { ReeResponse } from "../../models/interfaces/reeResponse";
+import { ValuesAttributesReeResponse } from "../../models/interfaces/valuesAttributesReeResponse";
 import { REEFunctions } from "./ree-functions";
 
 let chartData: Array<IncludedReeResponse> = [];
-
-
 
 function getRealTimeUrl(): string {
     const nowDate = new Date();
@@ -16,12 +15,15 @@ function getRealTimeUrl(): string {
     return realTimeUrl;
 }
 
-function processReeData(reeResponse: ReeResponse): void {
+function processTabColumnGraph(reeResponse: ReeResponse): void {
+    let title = '';
+    let lastUpdate = new Date();
+
     if (reeResponse && reeResponse.data && reeResponse.data.attributes) {
-        const title = reeResponse.data.attributes.title;
-        const lastUpdate = reeResponse.data.attributes['last-update'];
-    } 
-    
+        title = reeResponse.data.attributes.title;
+        lastUpdate = reeResponse.data.attributes['last-update'];
+    }
+
     if (reeResponse.included) {
         chartData = reeResponse.included;
 
@@ -39,14 +41,128 @@ function processReeData(reeResponse: ReeResponse): void {
 
         chartData = currentChartData;
 
-        // create html table
-    }
+        const labelsList = document.getElementById('labelsColumnsGraph');
+
+        if (labelsList) {
+            labelsList.replaceChildren();
+
+            chartData.map(included => {
+
+                if (included.attributes && included.attributes.title) {
+                    const liElement = document.createElement('li') as HTMLLIElement;
+                    liElement.innerHTML = included.attributes.title;
+                    labelsList.appendChild(liElement);
+                }
+            });
+        }
+
+        const titleElement = document.getElementById('titleColumnsGraph');
+
+        if (titleElement) {
+            titleElement.innerHTML = title;
+        }
+
+        const tBodyColumnsGraph = document.getElementById('tBodyColumnsGraph'); 
+        if (tBodyColumnsGraph) {
+            tBodyColumnsGraph.replaceChildren();
+
+            let demandaReal = chartData.find(x => x.type == 'Demanda real');
+            let demandaRealValues: Array<ValuesAttributesReeResponse> = [];
+            if (demandaReal && demandaReal.attributes.values) {
+                demandaRealValues = demandaReal.attributes.values;
+            }
     
+            const demandaPrograma = chartData.find(x => x.type == 'Demanda programada');
+            let demandaProgramaValues: Array<ValuesAttributesReeResponse> = [];
+            if (demandaPrograma && demandaPrograma.attributes.values) {
+                demandaProgramaValues = demandaPrograma.attributes.values;
+            }
+    
+            const demandaPrevista = chartData.find(x => x.type == 'Demanda prevista');
+            let demandaPrevistaValues: Array<ValuesAttributesReeResponse> = [];
+            if (demandaPrevista && demandaPrevista.attributes.values) {
+                demandaPrevistaValues = demandaPrevista.attributes.values;
+            }
+    
+            let dateList: Array<Date> = [];
+    
+            dateList = dateList.concat(demandaRealValues.map(x => { return x.datetime }));
+            dateList = dateList.concat(demandaProgramaValues.map(x => { return x.datetime }));
+            dateList = dateList.concat(demandaPrevistaValues.map(x => { return x.datetime }));
+    
+            dateList.sort((dateA, dateB) => {
+                const date1 = (new Date(dateA)).getTime();
+                const date2 = (new Date(dateB)).getTime();
+    
+                return (date1 < date2) ? -1 : (date1 > date2) ? 1 : 0;
+            });
+    
+            dateList = dateList.filter((value, index, array) => array.indexOf(value) === index);
+    
+            dateList.map(date => {
+                const trElement = document.createElement('tr') as HTMLElement;
+                const thElement = document.createElement('th') as HTMLElement;
+                thElement.setAttribute("scope", "row");
+                thElement.innerHTML = date.toString().substring(0, 19).replaceAll('T', ' ');
+                trElement.appendChild(thElement);
+
+                const demandaRealValue = demandaRealValues.find(x => x.datetime.toString() == date.toString());          
+                if (demandaRealValue) {
+                    const tdDemandaReal = document.createElement('td') as HTMLElement;
+                    const value = "--size: " + demandaRealValue.percentage + ";";
+                    tdDemandaReal.setAttribute("style", value);
+                    tdDemandaReal.innerHTML = demandaRealValue.value.toString();
+                    trElement.appendChild(tdDemandaReal);
+                }
+           
+                const demandaProgramaValue = demandaProgramaValues.find(x => x.datetime.toString() == date.toString());          
+                if (demandaProgramaValue) {
+                    const tdDemandaProgramada = document.createElement('td') as HTMLElement;
+                    const value = "--size: " + demandaProgramaValue.percentage + ";";
+                    tdDemandaProgramada.setAttribute("style", value);
+                    tdDemandaProgramada.innerHTML = demandaProgramaValue.value.toString();
+                    trElement.appendChild(tdDemandaProgramada);
+                }
+           
+                const demandaPrevistaValue = demandaPrevistaValues.find(x => x.datetime.toString() == date.toString());          
+                if (demandaPrevistaValue) {
+                    const tdDemandaPrevista = document.createElement('td') as HTMLElement;
+                    const value = "--size: " + demandaPrevistaValue.percentage + ";";
+                    tdDemandaPrevista.setAttribute("style", value);
+                    tdDemandaPrevista.innerHTML = demandaPrevistaValue.value.toString();
+                    trElement.appendChild(tdDemandaPrevista);
+                }
+
+                tBodyColumnsGraph.appendChild(trElement);
+            });
+        }
+    }
 }
 
-function drawData(): void {
+function drawData(tabId: string): void {
     const reeFunction = new REEFunctions();
-    reeFunction.searchInREE(getRealTimeUrl(), processReeData);
+
+    switch (tabId) {
+        case 'tabColumnGraph':
+            reeFunction.searchInREE(getRealTimeUrl(), processTabColumnGraph);
+            break
+        case 'tabBarGraph':
+            break
+        case 'tabLineGraph':
+            break
+        case 'tabAreaGraph':
+            break
+        case 'tabRadialGraph':
+            break
+        case 'tabPieGraph':
+            break
+        case 'tabPolarGraph':
+            break
+        case 'tabRadarGraph':
+            break
+        case 'tabMixedGraph':
+            break
+    }
 }
 
 

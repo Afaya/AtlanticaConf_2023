@@ -137,17 +137,17 @@ section {
 
 .tab table {
     width: 100%;
-    height: 90%;
+    height: 95%;
 }
 
 .tab ul {
     width: 100%;
-    height: 10%;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem!important;
+    height: 5%;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem !important;
 }
 
 .tab ul li {
-    line-height: 0!important;
+    line-height: 0 !important;
     height: fit-content;
 }
 
@@ -156,7 +156,266 @@ section {
     height: 100%;
 }
 
+#labelsColumnsGraph {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: fit-content;
+    border: none;
+}
+
+#tBodyColumnsGraph{
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+}
+
+#tBodyColumnsGraph tr th { 
+    transform: rotate(90deg);
+    height: fit-content;
+}
+
 /* main styles */
 
 /* footer styles */
 /* footer styles */
+
+
+/* Spinner */
+.spinner {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: visible;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    visibility: hidden;
+}
+
+.spinner:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.spinner:not(:required) {
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+.spinner:not(:required):after {
+    content: '';
+    display: block;
+    font-size: 30px;
+    width: 1em;
+    height: 1em;
+    margin-top: -0.5em;
+    -webkit-animation: spinner 1500ms infinite linear;
+    -moz-animation: spinner 1500ms infinite linear;
+    -o-animation: spinner 1500ms infinite linear;
+    animation: spinner 1500ms infinite linear;
+    border-radius: 0.5em;
+    -webkit-box-shadow: rgba(0, 24, 88, 0.75) 1.5em 0 0 0, rgba(0, 24, 88, 0.75) 1.1em 1.1em 0 0, rgba(0, 24, 88, 0.75) 0 1.5em 0 0, rgba(0, 24, 88, 0.75) -1.1em 1.1em 0 0, rgba(0, 24, 88, 0.5) -1.5em 0 0 0, rgba(0, 24, 88, 0.5) -1.1em -1.1em 0 0, rgba(0, 24, 88, 0.75) 0 -1.5em 0 0, rgba(0, 24, 88, 0.75) 1.1em -1.1em 0 0;
+    box-shadow: rgba(0, 24, 88, 0.75) 1.5em 0 0 0, rgba(0, 24, 88, 0.75) 1.1em 1.1em 0 0, rgba(0, 24, 88, 0.75) 0 1.5em 0 0, rgba(0, 24, 88, 0.75) -1.1em 1.1em 0 0, rgba(0, 24, 88, 0.75) -1.5em 0 0 0, rgba(0, 24, 88, 0.75) -1.1em -1.1em 0 0, rgba(0, 24, 88, 0.75) 0 -1.5em 0 0, rgba(0, 24, 88, 0.75) 1.1em -1.1em 0 0;
+}
+
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+/* Spinner */
+
+
+/* estilos pop up info and error*/
+.errorBody {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    color: #FF0000;
+    background-color: #061B2B80;
+}
+
+.errorContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    height: 25%;
+    color: #FF0000;
+    background-color: #FFFFFF;
+    border: 0.1em solid #FF0000;
+    padding: .5em .5em .5em .5em;
+    margin: 1em 1em 1em 1em;
+    box-shadow: 0px 0px 1em #FF0000;
+}
+
+.errorCloseButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #FF0000;
+    font-size: 0.875em;
+    border: solid 0.1em #FF0000;
+    background-color: #e4e9f0;
+    padding: 0.3em 1em 0.3em 1em;
+    cursor: pointer;
+    box-shadow: 2px 2px #061B2B;
+}
+
+.errorCloseButton:hover {
+    background-color: #061B2B;
+    color: #FFFFFF;
+}
+
+
+.infoBody {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    color: #061B2B;
+    background-color: #061B2B80;
+}
+
+.infoContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    height: 35%;
+    color: #061B2B;
+    background-color: #FFFFFF;
+    border: 0.1em solid #00C1DE;
+    padding: .5em .5em .5em .5em;
+    margin: 1em 1em 1em 1em;
+    box-shadow: 0px 0px 1em #00C1DE;
+}
+
+.infoCloseButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #00C1DE;
+    font-size: 0.875em;
+    border: solid 0.1em #00C1DE;
+    background-color: #e4e9f0;
+    padding: 0.3em 1em 0.3em 1em;
+    cursor: pointer;
+    box-shadow: 2px 2px #061B2B;
+}
+
+.infoCloseButton:hover {
+    background-color: #061B2B;
+    color: #FFFFFF;
+}
+
+/* estilos pop up info and error*/
+
+
+/* Hide and show components by css */
+.hideDisplay {
+    display: none;
+}
+
+.showFlexDisplay {
+    display: flex;
+}
+
+.showVisibilityDisplay {
+    visibility: visible;
+}

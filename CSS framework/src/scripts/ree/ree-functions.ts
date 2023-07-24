@@ -1,9 +1,13 @@
 import { ErrorReeResponse } from "../../models/interfaces/errorReeResponse";
 import { ErrorTypeReeResponse } from "../../models/interfaces/ErrorTypeReeResponse";
 import { ReeResponse } from "../../models/interfaces/reeResponse";
+import { ShareFunctions } from "../shared-functions";
 
+const shareFunctions = new ShareFunctions();
 
 function searchInREE(url: string, callback: any): void {
+    shareFunctions.ShowSpinner();
+
     fetch(url, {
         method: 'GET'
         // ,
@@ -20,6 +24,7 @@ function searchInREE(url: string, callback: any): void {
                 const error = response.status;
 
                 if (error == 401) {
+                    shareFunctions.SetErrors('Error: No Authorize');
                 } else {
                     const currentErrorsRee = data as ErrorReeResponse;
                     let message = '';
@@ -28,16 +33,25 @@ function searchInREE(url: string, callback: any): void {
                         currentErrorsRee.errors.map((error: ErrorTypeReeResponse) => {
                             message = message + ' Code error: ' + error.code + ', status: ' + error.status + ', title: ' + error.title + ', detail: ' + error.detail;
                         });
+
+                        shareFunctions.SetErrors('Error: ' + message);
                     } else {
+                        shareFunctions.SetErrors('Error: unknown error getting information.');
                     }
                 }
+
+                shareFunctions.HideSpinner();
             } else {
                 const reeResponse = data as ReeResponse;
 
                 callback(reeResponse);
+
+                shareFunctions.HideSpinner();
             }
         })
         .catch(error => {
+            shareFunctions.SetErrors('Error: ' + error);
+            shareFunctions.HideSpinner();
         });
 }
 

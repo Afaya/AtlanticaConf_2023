@@ -1,11 +1,18 @@
 'use strict';
 
 import { DrawData } from './scripts/ree/draw-data';
+import { ShareFunctions } from './scripts/shared-functions';
 
 declare global {
     interface Window {
+        showSpinner: any;
+        hideSpinner: any;
         drawReeData: any;
         showHideTab: any;
+        clearErrors: any;
+        setErrors: any;
+        clearInfo: any;
+        setInfo: any;
     }
 }
 
@@ -117,18 +124,55 @@ function showHideTab(tabId: string): void {
         currentButton.classList.add('buttonSelected');
     }
 
-    drawReeData();
+    drawReeData(tabId);
 }
 // #endregion general functions
 
 // #region reedata
-function drawReeData(): void {
+function drawReeData(tabId: string): void {
     const drawData = new DrawData();
-    drawData.drawData();
+    drawData.drawData(tabId);
 }
 // #endregion reedata
 
+// #region ShareFunctions
+function showSpinner(): void {
+    const shareFunctions = new ShareFunctions();
+    shareFunctions.ShowSpinner();
+}
+
+function hideSpinner(): void {
+    const shareFunctions = new ShareFunctions();
+    shareFunctions.HideSpinner();
+}
+
+function clearErrors(): void {
+    const shareFunctions = new ShareFunctions();
+    shareFunctions.ClearErrors();
+}
+
+function setErrors(MessageError: string): void {
+    const shareFunctions = new ShareFunctions();
+    shareFunctions.SetErrors(MessageError);
+}
+
+function clearInfo(): void {
+    const shareFunctions = new ShareFunctions();
+    shareFunctions.ClearInfo();
+}
+
+function setInfo(MessageInfo: string): void {
+    const shareFunctions = new ShareFunctions();
+    shareFunctions.SetInfo(MessageInfo);
+}
+// #endregion ShareFunctions
 
 // assign global functions webpack
+window.showSpinner = showSpinner;
+window.hideSpinner = hideSpinner;
 window.drawReeData = drawReeData;
 window.showHideTab = showHideTab;
+window.clearErrors = clearErrors;
+window.setErrors = setErrors;
+window.clearInfo = clearInfo;
+window.setInfo = setInfo;
