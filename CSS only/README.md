@@ -96,8 +96,8 @@ calculateDataInBubbles()
 ```
 
 Para ello: - Primero tomamos el valor máximo:
-`    const maxValue = Math.max(...dataToDisplayInGraphs.map(o => o.value));
-  `
+`   const maxValue = Math.max(...dataToDisplayInGraphs.map(o => o.value));
+ `
 
     - Y después dependiendo de su tamaño y del máximo calculamos su porcentaje con respecto al máximo. Con este porcentaje calculamos si tendría un valor de 3 (> 75%), 2 (>50%) o 1.
     ```
@@ -159,13 +159,20 @@ Lo primero que se hace es coger el div del gráfico y de la leyenda. Luego vamos
 calculateDataArea
 ```
 
-Los pasos que realizamos son: - Como el grid va a ser cuadrado calcular cuantas celdas tiene: lado _ lado. - Sumar los puntos totales de todos los usuarios:
-`    const valuesSumUp = dataToDisplayInGraphs.reduce(
-        function (acc, obj) { return acc + obj.value; }, 0);
-   ` - Calcular el valor de area que le corresponde a cada valor. - Para ello tendremos en cuenta cuantas celdas corresponde por punto (dividimos las celdas entre los puntos totales).
+Los pasos que realizamos son:
+
+- Como el grid va a ser cuadrado calcular cuantas celdas tiene: lado \_ lado. - Sumar los puntos totales de todos los usuarios:
+
 ```
-valueToCalculate _ (maxCells / valuesSumUp)
-``` - Con ello lo multiplicamos por el número de puntos y redondeamos con un Math.floor. - Si el valor es mayor de 100, lo que hacemos es si supera en la siguientas decenas de 50 se redondea al 100 siguiente y sino se le resta todo lo que supere del 100 anterior. Es decir 234 sería 200 y 366 sería 400.
+const valuesSumUp = dataToDisplayInGraphs.reduce(
+function (acc, obj) { return acc + obj.value; }, 0);
+```
+
+- Calcular el valor de area que le corresponde a cada valor. - Para ello tendremos en cuenta cuantas celdas corresponde por punto (dividimos las celdas entre los puntos totales).Luego lo multiplicamos por el número de puntos y redondeamos con un Math.floor.
+
+```
+ Math.floor(d.value * (maxCells / valuesSumUp))
+```
 
 Creamos el grid que será cuadrado
 

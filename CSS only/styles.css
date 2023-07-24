@@ -140,3 +140,7 @@ h2{
   margin-bottom: 2rem;
   width:100%;
 }
+
+.background-with-border{
+  border: 0.1rem solid #fff;
+}

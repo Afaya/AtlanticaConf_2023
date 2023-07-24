@@ -1,16 +1,6 @@
 const sideCells = 50;
 const availableAreaColors = ['pink', 'orange', 'green', 'yellow', 'blue'];
 
-function calculateNewAreaValue(valueToCalculate, maxCells, valuesSumUp){
-  var valueCalculated = Math.floor(valueToCalculate * (maxCells / valuesSumUp));
-  if(valueCalculated > 100){
-    var partTo100 = valueCalculated % 100;
-    valueCalculated = partTo100 >= 50 
-                      ? valueCalculated + (100 - partTo100) 
-                      : valueCalculated - partTo100;
-  }
-  return valueCalculated;
-}
 
 function calculateDataArea(){
   const maxCells = sideCells * sideCells;
@@ -19,7 +9,7 @@ function calculateDataArea(){
   return dataToDisplayInGraphs.map(d=>{
     return {
       name: d.name,
-      value: calculateNewAreaValue(d.value, maxCells, valuesSumUp),
+      value: Math.floor(d.value * (maxCells / valuesSumUp)),
       originalValue: d.value
     }
   }); 
@@ -43,6 +33,7 @@ function generateDivs(currentColor, graphDiv, numberofDivs){
   for(var i=0; i<numberofDivs; i++){
     var currentDiv = document.createElement("div");
     currentDiv.classList.add(currentColor);
+    currentDiv.classList.add('background-with-border');
     graphDiv.appendChild(currentDiv);
   }
 }
