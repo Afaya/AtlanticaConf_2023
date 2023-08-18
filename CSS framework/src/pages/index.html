@@ -51,10 +51,6 @@
           </thead>
 
           <tbody id="tBodyColumnsGraph">
-            <!-- <tr>
-              <th scope="row">row 1</th>
-              <td style="--size: 0.001;"> 1 <span class="tooltip"> Tooltip info </span> </td>
-            </tr> -->
           </tbody>
         </table>
 
@@ -69,17 +65,18 @@
         show-primary-axis 
         show-10-secondary-axes 
         show-data-axes 
-        data-spacing-20">
+        data-spacing-20
+        multiple">
 
-          <caption> Bar graph </caption>
+          <caption id="titleBarGraph"></caption>
 
           <thead>
             <tr>
-              <th scope="col">th</th>
+              <th scope="col"></th>
             </tr>
           </thead>
 
-          <tbody>
+          <tbody id="tBodyBarGraph">
             <tr>
               <th scope="row">row 1</th>
               <td style="--size: 0.001;"> 1 <span class="tooltip"> Tooltip info </span> </td>
@@ -102,10 +99,7 @@
           </tbody>
         </table>
 
-        <ul class="charts-css legend legend-inline legend-circle">
-          <li> Label 1 </li>
-          <li> Label 2 </li>
-          <li> Label 3 </li>
+        <ul id="labelsBarGraph" class="charts-css legend legend-inline legend-circle">
         </ul>
       </div>
 
