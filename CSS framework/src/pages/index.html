@@ -20,10 +20,11 @@
   <main>
     <section>
       <nav class="menu">
-        <button id="button_tabColumnGraph" type="button" onclick="showHideTab('tabColumnGraph')">Columnas</button>
         <button id="button_tabBarGraph" type="button" onclick="showHideTab('tabBarGraph')">Barras</button>
-        <button id="button_tabLineGraph" type="button" onclick="showHideTab('tabLineGraph')">Lineas</button>
+        <button id="button_tabColumnGraph" type="button" onclick="showHideTab('tabColumnGraph')">Columnas</button>
+        <button id="button_tabColumnGraph3D" type="button" onclick="showHideTab('tabColumnGraph3D')">Columnas 3D</button>
         <button id="button_tabAreaGraph" type="button" onclick="showHideTab('tabAreaGraph')">Area</button>
+        <button id="button_tabLineGraph" type="button" onclick="showHideTab('tabLineGraph')">Lineas</button>
         <button id="button_tabRadialGraph" type="button" onclick="showHideTab('tabRadialGraph')">Radial</button>
         <button id="button_tabPieGraph" type="button" onclick="showHideTab('tabPieGraph')">Pie</button>
         <button id="button_tabPolarGraph" type="button" onclick="showHideTab('tabPolarGraph')">Polar</button>
@@ -31,6 +32,31 @@
         <button id="button_tabMixedGraph" type="button" onclick="showHideTab('tabMixedGraph')">Mixed</button>
       </nav>
 
+      <div id="tabBarGraph" class="tab">
+        <table class="charts-css bar 
+        show-heading 
+        show-labels 
+        show-primary-axis 
+        show-10-secondary-axes 
+        show-data-axes 
+        data-spacing-20
+        multiple">
+
+          <caption id="titleBarGraph"></caption>
+
+          <thead>
+            <tr>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+
+          <tbody id="tBodyBarGraph">
+          </tbody>
+        </table>
+
+        <ul id="labelsBarGraph" class="charts-css legend legend-inline legend-circle">
+        </ul>
+      </div>
 
       <div id="tabColumnGraph" class="tab">
         <table class="charts-css column 
@@ -58,17 +84,15 @@
         </ul>
       </div>
 
-      <div id="tabBarGraph" class="tab">
-        <table class="charts-css bar 
+      <div id="tabColumnGraph3D" class="tab">
+        <table class="charts-css column 
         show-heading 
         show-labels 
         show-primary-axis 
-        show-10-secondary-axes 
-        show-data-axes 
-        data-spacing-20
+        data-spacing-5
         multiple">
 
-          <caption id="titleBarGraph"></caption>
+          <caption id="titleColumns3DGraph"></caption>
 
           <thead>
             <tr>
@@ -76,34 +100,138 @@
             </tr>
           </thead>
 
-          <tbody id="tBodyBarGraph">
-            <tr>
-              <th scope="row">row 1</th>
-              <td style="--size: 0.001;"> 1 <span class="tooltip"> Tooltip info </span> </td>
-            </tr>
-
-            <tr>
-              <th scope="row">row 2</th>
-              <td style="--size: 0.007;"> 7 </td>
-            </tr>
-
-            <tr>
-              <th scope="row">row 3</th>
-              <td style="--size: 0.010;"> 10 </td>
-            </tr>
-
-            <tr>
-              <th scope="row">row 4</th>
-              <td style="--size: 0.030;"> 30 </td>
-            </tr>
+          <tbody id="tBodyColumns3DGraph">
           </tbody>
         </table>
 
-        <ul id="labelsBarGraph" class="charts-css legend legend-inline legend-circle">
+        <ul id="labelsColumns3DGraph" class="charts-css legend legend-inline legend-circle">
         </ul>
       </div>
 
+      <div id="tabAreaGraph" class="tab">
+        <table class="charts-css area" id="my-chart">
+
+          <tbody>
+            <tr>
+              <td style="--start: 0.2; --size: 0.4"> <span class="data"> $ 40K </span> </td>
+            </tr>
+            <tr>
+              <td style="--start: 0.4; --size: 0.8"> <span class="data"> $ 80K </span> </td>
+            </tr>
+            <tr>
+              <td style="--start: 0.8; --size: 0.6"> <span class="data"> $ 60K </span> </td>
+            </tr>
+            <tr>
+              <td style="--start: 0.6; --size: 1.0"> <span class="data"> $ 100K </span> </td>
+            </tr>
+            <tr>
+              <td style="--start: 1.0; --size: 0.3"> <span class="data"> $ 30K </span> </td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+
       <div id="tabLineGraph" class="tab">
+        <table class="charts-css line 
+        show-heading 
+        show-labels 
+        show-primary-axis 
+        show-10-secondary-axes 
+        show-data-axes">
+
+          <caption> line graph </caption>
+
+          <thead>
+            <tr>
+              <th scope="col">th</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row">row 1</th>
+              <td style="--start: 0.2; --size: 0.4">
+                <span class="data"> $ 40K </span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">row 2</th>
+              <td style="--start: 0.4; --size: 0.8">
+                <span class="data"> $ 80K </span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">row 3</th>
+              <td style="--start: 0.8; --size: 0.6">
+                <span class="data"> $ 60K </span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">row 4</th>
+              <td style="--start: 0.6; --size: 1.0">
+                <span class="data"> $ 100K </span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">row 5</th>
+              <td style="--start: 1.0; --size: 0.3">
+                <span class="data"> $ 30K </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="tabRadialGraph" class="tab">
+        <h2>En desarrollo por chartcss</h2>
+      </div>
+
+      <div id="tabPieGraph" class="tab">
+        <h2>En desarrollo por chartcss</h2>
+      </div>
+
+      <div id="tabPolarGraph" class="tab">
+        <h2>En desarrollo por chartcss</h2>
+      </div>
+
+      <div id="tabRadarGraph" class="tab">
+        <h2>En desarrollo por chartcss</h2>
+      </div>
+
+      <div id="tabMixedGraph" class="tab">
+        <table class="charts-css area" id="my-chart">
+
+          <tbody>
+            <tr>
+              <td style="--start: 0.2; --size: 0.4">
+                <span class="data"> $ 40K </span>
+              </td>
+            </tr>
+            <tr>
+              <td style="--start: 0.4; --size: 0.8">
+                <span class="data"> $ 80K </span>
+              </td>
+            </tr>
+            <tr>
+              <td style="--start: 0.8; --size: 0.6">
+                <span class="data"> $ 60K </span>
+              </td>
+            </tr>
+            <tr>
+              <td style="--start: 0.6; --size: 1.0">
+                <span class="data"> $ 100K </span>
+              </td>
+            </tr>
+            <tr>
+              <td style="--start: 1.0; --size: 0.3">
+                <span class="data"> $ 30K </span>
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+
         <table class="charts-css line 
         show-heading 
         show-labels 
@@ -149,24 +277,10 @@
             </tr>
           </tbody>
         </table>
-      </div>
 
-      <div id="tabAreaGraph" class="tab">
-      </div>
+        <div class="primary-axis"> Primary Axis Title </div>
 
-      <div id="tabRadialGraph" class="tab">
-      </div>
-
-      <div id="tabPieGraph" class="tab">
-      </div>
-
-      <div id="tabPolarGraph" class="tab">
-      </div>
-
-      <div id="tabRadarGraph" class="tab">
-      </div>
-
-      <div id="tabMixedGraph" class="tab">
+        <div class="data-1-axis"> Data-1 Axis Title </div>
       </div>
     </section>
 

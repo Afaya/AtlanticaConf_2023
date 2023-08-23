@@ -175,7 +175,7 @@ section {
     --labels-size: 5rem;
 }
 
-.tBodyScope {
+.tBodyColumScope {
     font-size: 0.75rem;
     font-weight: 100;
     writing-mode: vertical-rl;
@@ -199,6 +199,99 @@ section {
     height: fit-content;
     border: none;
 }
+
+.tBodyBarScope {
+    font-size: 0.75rem;
+    font-weight: 100;
+}
+
+
+#tabMixedGraph {
+    display: none;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 85% 5%;
+    grid-template-areas:
+        "data-1-axis  stocks       data-2-axis"
+        "data-1-axis  volume       data-2-axis"
+        "primary-axis primary-axis primary-axis";
+}
+
+#tabMixedGraph>table.area,
+#tabMixedGraph>table.line {
+    grid-area: stocks;
+}
+
+#tabMixedGraph>table.column {
+    grid-area: volume;
+}
+
+#tabMixedGraph>.primary-axis {
+    grid-area: primary-axis;
+}
+
+#tabMixedGraph>.data-1-axis {
+    grid-area: data-1-axis;
+    writing-mode: tb-rl;
+    transform: rotateZ(180deg);
+}
+
+#tabMixedGraph>.data-2-axis {
+    grid-area: data-2-axis;
+    writing-mode: tb-rl;
+}
+
+
+
+#labelsColumns3DGraph {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: fit-content;
+    border: none;
+}
+
+#tBodyColumns3DGraph {
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+}
+
+#tabColumnGraph3D .column {
+    --labels-size: 5rem;
+}
+
+#tabColumnGraph3D tbody td {
+    margin-inline-start: 10px;
+    margin-inline-end: 20px;
+}
+
+#tabColumnGraph3D tbody td:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 100%;
+    height: 10px;
+    transform: skewX(-45deg);
+    transform-origin: top;
+    background-color: lightgrey;
+}
+
+#tabColumnGraph3D tbody td:after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -10px;
+    width: 10px;
+    height: 100%;
+    transform: skewY(-45deg);
+    transform-origin: top;
+    background-color: lightgrey;
+}
+
 /* main styles */
 
 /* footer styles */
