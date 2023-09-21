@@ -21,6 +21,7 @@ function showHideTab(tabId: string): void {
     const tabBarGraph = document.getElementById('tabBarGraph');
     const tabLineGraph = document.getElementById('tabLineGraph');
     const tabColumnGraph = document.getElementById('tabColumnGraph');
+    const tabColumnGraphStacked = document.getElementById('tabColumnGraphStacked'); 
     const tabColumnGraph3D = document.getElementById('tabColumnGraph3D');
     const tabAreaGraph = document.getElementById('tabAreaGraph');
     const tabRadialGraph = document.getElementById('tabRadialGraph');
@@ -39,6 +40,10 @@ function showHideTab(tabId: string): void {
 
     if (tabColumnGraph) {
         tabColumnGraph.style.display = 'none';
+    }
+
+    if (tabColumnGraphStacked) {
+        tabColumnGraphStacked.style.display = 'none';
     }
 
     if (tabColumnGraph3D) {
@@ -79,10 +84,10 @@ function showHideTab(tabId: string): void {
         }
     }
 
-
     const button_tabBarGraph = document.getElementById('button_tabBarGraph');
     const button_tabLineGraph = document.getElementById('button_tabLineGraph');
     const button_tabColumnGraph = document.getElementById('button_tabColumnGraph');
+    const button_tabColumnGraphStacked = document.getElementById('button_tabColumnGraphStacked');
     const button_tabColumnGraph3D = document.getElementById('button_tabColumnGraph3D');
     const button_tabAreaGraph = document.getElementById('button_tabAreaGraph');
     const button_tabRadialGraph = document.getElementById('button_tabRadialGraph');
@@ -101,6 +106,10 @@ function showHideTab(tabId: string): void {
 
     if (button_tabColumnGraph) {
         button_tabColumnGraph.classList.remove('buttonSelected');
+    }
+
+    if (button_tabColumnGraphStacked) {
+        button_tabColumnGraphStacked.classList.remove('buttonSelected');
     }
 
     if (button_tabColumnGraph3D) {

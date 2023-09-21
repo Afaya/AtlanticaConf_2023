@@ -22,6 +22,7 @@
       <nav class="menu">
         <button id="button_tabBarGraph" type="button" onclick="showHideTab('tabBarGraph')">Barras</button>
         <button id="button_tabColumnGraph" type="button" onclick="showHideTab('tabColumnGraph')">Columnas</button>
+        <button id="button_tabColumnGraphStacked" type="button" onclick="showHideTab('tabColumnGraphStacked')">Columnas stacked</button>
         <button id="button_tabColumnGraph3D" type="button" onclick="showHideTab('tabColumnGraph3D')">Columnas 3D</button>
         <button id="button_tabAreaGraph" type="button" onclick="showHideTab('tabAreaGraph')">Area</button>
         <button id="button_tabLineGraph" type="button" onclick="showHideTab('tabLineGraph')">Lineas</button>
@@ -84,6 +85,33 @@
         </ul>
       </div>
 
+      <div id="tabColumnGraphStacked" class="tab">
+        <table class="charts-css column 
+        show-heading 
+        show-labels 
+        show-primary-axis 
+        show-10-secondary-axes 
+        show-data-axes 
+        data-spacing-5
+        stacked
+        multiple">
+
+          <caption id="titleColumnsGraphStacked"></caption>
+
+          <thead>
+            <tr>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+
+          <tbody id="tBodyColumnsGraphStacked">
+          </tbody>
+        </table>
+
+        <ul id="labelsColumnsGraphStacked" class="charts-css legend legend-inline legend-circle">
+        </ul>
+      </div>
+
       <div id="tabColumnGraph3D" class="tab">
         <table class="charts-css column 
         show-heading 
@@ -138,7 +166,9 @@
         show-labels 
         show-primary-axis 
         show-10-secondary-axes 
-        show-data-axes">
+        show-data-axes
+        show-data-on-hover
+        multiple">
 
           <caption id="titleLineGraph"></caption>
 
@@ -149,36 +179,6 @@
           </thead>
 
           <tbody  id="tBodyLineGraph">
-            <tr>
-              <th scope="row">row 1</th>
-              <td style="--start: 0.2; --size: 0.4">
-                <span class="data"> $ 40K </span>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">row 2</th>
-              <td style="--start: 0.4; --size: 0.8">
-                <span class="data"> $ 80K </span>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">row 3</th>
-              <td style="--start: 0.8; --size: 0.6">
-                <span class="data"> $ 60K </span>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">row 4</th>
-              <td style="--start: 0.6; --size: 1.0">
-                <span class="data"> $ 100K </span>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">row 5</th>
-              <td style="--start: 1.0; --size: 0.3">
-                <span class="data"> $ 30K </span>
-              </td>
-            </tr>
           </tbody>
         </table>
 

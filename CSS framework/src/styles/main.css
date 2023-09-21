@@ -184,6 +184,34 @@ section {
     /* letter-spacing: 0.075rem; */
 }
 
+#labelsColumnsGraphStacked {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: fit-content;
+    border: none;
+}
+
+#tBodyColumnsGraphStacked {
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+}
+
+#tabColumnGraphStacked .column {
+    --labels-size: 5rem;
+}
+
+.tBodyColumStackedScope {
+    font-size: 0.75rem;
+    font-weight: 100;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(-180deg);
+    /* letter-spacing: 0.075rem; */
+}
+
 
 #tBodyBarGraph {
     width: 100%;
@@ -308,10 +336,75 @@ section {
     border: none;
 }
 
-.tBodyLineGraph {
+#tabLineGraph .line {
+    --labels-size: 5rem;
+    --line-size: 0.1rem;
+}
+
+.tBodyLineScope {
     font-size: 0.75rem;
     font-weight: 100;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(-180deg);
 }
+
+
+.labelRed {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: red;
+    height: 4rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.labelBlue {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    color: blue;
+    height: 4rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.labelGreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: green;
+    height: 4rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.legendRed {
+    color: red;
+}
+
+.legendRed::before {
+    background-color: red!important;
+}
+
+.legendBlue {
+    color: blue;
+}
+
+.legendBlue::before {
+    background-color: blue!important;
+}
+
+.legendGreen {
+    color: green;
+}
+
+.legendGreen::before {
+    background-color: green!important;
+}
+
+
 /* main styles */
 
 /* footer styles */
